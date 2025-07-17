@@ -85,7 +85,7 @@ data
 
 After downloading these checkpoints, put them into the folder ``pretrained``.
 
-### 3. Inference on the test sets
+### 3. Inference
 
 **OC-GMM**
 ```
@@ -94,7 +94,12 @@ CUDA_VISIBEL_DEVICES=4 python OC_GMM.py --resume ./pretrained/OC.pth
 
 **BC-MLP**
 ```
-CUDA_VISIBEL_DEVICES=4 python BC_MLP.py --resume ./pretrained/BC.pth
+CUDA_VISIBEL_DEVICES=4 python BC_MLP.py --resume ./pretrained/BC.pth [--only_gan, --only_diffusion, --only_paper, optional for choosing test sets, including images from GANs, diffusion models, or those mentioned in the paper.]
+```
+
+**BC-MLP Complexity**
+```
+CUDA_VISIBEL_DEVICES=4 python BC_MLP.py --resume ./pretrained/BC.pth --complexity_cal
 ```
 
 
