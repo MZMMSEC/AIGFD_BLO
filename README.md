@@ -78,12 +78,12 @@ data
 
 ### 2. Download the pretrained model and our model
 
-|      Model       |                                                               Download                                                                |
-|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| OC-GMM | [Baidu Disk](https://pan.baidu.com/s/19aB91CXXBZEe9X9e3expnQ?pwd=6irr) |
-| BC-MLP | [Baidu Disk]() |
+|      Model       |                                                               Download                                                                | |
+|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+| OC-GMM | [Baidu Disk](https://pan.baidu.com/s/19aB91CXXBZEe9X9e3expnQ?pwd=6irr) |✅ |
+| BC-MLP | [Baidu Disk]() |⬜ |
 
-After downloading these checkpoints, put them into the folder ``pretrained``
+After downloading these checkpoints, put them into the folder ``pretrained``.
 
 ### 3. Inference on the test sets
 
