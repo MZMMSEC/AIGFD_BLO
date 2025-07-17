@@ -38,20 +38,19 @@ class GatherDataset(Dataset):
             fake_items = [fake_items_tag]
 
         root_dir_fake_dict = {
-            'progan':'/data0/mian3-2/ProGAN/Celeba-256-2',
-            'stargan': '/data0/mian3-2/literature_code/AIGC/AIGC-Test/stargan/1_fake',
-            'pigan':'/data0/mian3-2/literature_code/pi-GAN/imgs',
-            # 'progan_128': '/data0/mian3-2/literature_code/progan/GAN_Generated_Fake_Images/ProGAN_128x128',
+            'progan':'../data/progan/',
+            'stargan': '../data/stargan/',
+            'pigan':'../data/pigan/',
             #
-            'stylegan2': '/data0/mian3-2/stylegan3/out_0.5/',#
-            'vqgan': "/data0/mian3-2/VQ-GAN_celebahq",
-            'ldm': "/data0/mian3-2/diffusion-faces/diff-face-ji/LDM/",
-            'ddim': "/data0/mian3-2/diffusion-faces/diff-face-ji/DDIM/",
-            'sdv21': "/data0/mian3-2/diffusion-faces/diff-face-ji/stable_diffusion_v_2_1_text2img_p2g3/",
-            'freeDom': "/data0/mian3-2/diffusion-faces/diff-face-nie/FreeDoM_T/",
-            'hps': "/data0/mian3-2/diffusion-faces/diff-face-nie/HPS/",
-            'midj': "/data0/mian3-2/diffusion-faces/diff-face-nie/Midjourney/",
-            'sdxl': "/data0/mian3-2/diffusion-faces/diff-face-nie/SDXL/"
+            'stylegan2': '../data/stylegan2/',#
+            'vqgan': "../data/vqgan/",
+            'ldm': "../data/ldm/",
+            'ddim': "../data/ddim/",
+            'sdv21': "../data/sdv21/",
+            'freeDom': "../data/freeDoM/",
+            'hps': "../data/hps/",
+            'midj': "../data/midjourney/",
+            'sdxl': "../data/sdxl/"
         }
         self.image_paths_fake = []
         for i, fake_item in enumerate(fake_items):
@@ -69,7 +68,7 @@ class GatherDataset(Dataset):
         # for photographic
         real_items = [real_item_tag]
         root_dir_real_dict = {
-            'celeba': "/data0/mian3-2/diffusion-faces/diff-face-ji/Real/",
+            'celeba': "../data/celeba-face/",
         }
         self.image_paths_real = []
         i = 8
@@ -105,7 +104,7 @@ class GatherDataset(Dataset):
         if train:
             print('training!')
             with open(
-                    "/data0/mian3-2/Experiments/exif-as-language-v2-variants/train.txt",
+                    "../data/celeba-face/train.txt",
                     'r') as file:
                 for line in file:
                     words = line.strip()
@@ -113,7 +112,7 @@ class GatherDataset(Dataset):
                     self.image_paths_current.append((file_path, 0, label_specific))
         else:
             with open(
-                    "/data0/mian3-2/Experiments/exif-as-language-v2-variants/test.txt",
+                    "../data/celeba-face/test.txt",
                     'r') as file:
                 for line in file:
                     words = line.strip()
@@ -125,20 +124,16 @@ class GatherDataset(Dataset):
         for filename in os.listdir(dir_path):
             file_path = os.path.join(dir_path, filename)
             if os.path.isdir(file_path):
-                # 如果是文件夹，则递归遍历子文件夹
                 self._collect_image_paths_fake(file_path, label_specific)
             elif filename.endswith('.jpg') or filename.endswith('.png') or filename.endswith('.jpeg'):
-                # 如果是图像文件，则将其路径添加到列表中
                 self.image_paths_current.append((file_path, 1, label_specific))
 
     def _collect_image_paths_real(self, dir_path, label_specific):
         for filename in os.listdir(dir_path):
             file_path = os.path.join(dir_path, filename)
             if os.path.isdir(file_path):
-                # 如果是文件夹，则递归遍历子文件夹
                 self._collect_image_paths_real(file_path, label_specific)
             elif filename.endswith('.jpg') or filename.endswith('.png') or filename.endswith('.jpeg'):
-                # 如果是图像文件，则将其路径添加到列表中
                 self.image_paths_current.append((file_path, 0, label_specific))
 
 
