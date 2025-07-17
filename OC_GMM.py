@@ -280,12 +280,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--resume',
-                        default='/data0/mian3-2/Experiments/exif-as-language-L2R-v2-debugExp/output/train_OC_primary/'
-                                'FaceCoarse-autol3e4_equalExFa-rn50exifinit_bz48_lr_1e5_FLfidelityV2-u-SM/'
-                                'ckpt_epoch_14.pth', # for blo
-                        help='/data0/mian3-2/Experiments/exif-as-language-L2R-v2-debugExp/output/train/'
-                                'JE-OrdinalCateg/autol3e4_equalExFa-rn50exifinit_bz96_lr_1e5_FLfidelityV2-u-SM/'
-                                'ckpt_epoch_24.pth', # for auto-l multitask but not priotization
+                        default='./pretrained/OC.pth',
                         type=str)
     parser.add_argument('--save_dir', type=str,
                         default='./output/test/')
