@@ -12,6 +12,7 @@ from sklearn.metrics import average_precision_score, precision_recall_curve, acc
 from pathlib import Path
 from tqdm import tqdm
 from torchvision.models import resnet50
+from thop import profile
 
 from dataset.OC_dataset import GatherDataset
 from model import BC_MLP
@@ -126,6 +127,29 @@ def test(args):
     print(f"Mean number of AP: {np.mean(AP_meter): .4f}")
     print(f"Mean number of AUC: {np.mean(AUC_meter): .4f}")
 
+    dummy_input = torch.randn(1, 3, 224, 224).cuda()
+    flops, params = profile(model, (dummy_input,))
+    print('flops: ', flops, 'params: ', params)
+    print('flops: %.2f M, params: %.2f M' % (flops / 1000000.0, params / 1000000.0))
+
+    # for FLOPS
+    # 2. inference time
+    model.eval()  
+    with torch.no_grad():
+        start_time = time.time()
+        model(dummy_input)  # forward
+        end_time = time.time()
+
+    inference_time = end_time - start_time  
+    print(f"Inference Time (per forward pass): {inference_time:.6f} seconds")
+
+    # 3. FLOPS
+    flops_per_second = flops / inference_time  
+    flops_per_second_g = flops_per_second / 1e9  #  GFLOPS
+
+    print(f"FLOPS (Floating Point Operations Per Second): {flops_per_second_g:.2f} GFLOPS")
+
+
 
 if __name__ == '__main__':
     parse = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -139,6 +163,7 @@ if __name__ == '__main__':
     parse.add_argument('--only_gan', action='store_true')
     parse.add_argument('--only_diffusion', action='store_true')
     parse.add_argument('--only_paper', action='store_true')
+    parse.add_argument('--complexity_cal', action='store_true')
     args = parse.parse_args()
 
     output_path = os.path.join(args.output, args.name)
@@ -147,5 +172,6 @@ if __name__ == '__main__':
 
     Logger(os.path.join(output_path, 'log.log'))
     print('  '.join(list(sys.argv)))
+
 
     test(args)
