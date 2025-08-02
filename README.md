@@ -1,4 +1,4 @@
-# [ICCV'25] Bi-Level Optimization for Self-Supervised AI-Generated Face Detection
+# [ICCV'25 Highlight] Bi-Level Optimization for Self-Supervised AI-Generated Face Detection
 
 This repository contains the official PyTorch implementation of the paper **"[Bi-Level Optimization for Self-Supervised AI-Generated Face Detection]()"** by Mian Zou, Nan Zhong, Baosheng Yu, Yibing Zhan, and Kede Ma.
 
@@ -6,9 +6,9 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 
 - [ ] Release [arXiv paper]()
 - [x] Release inference codes
-- [ ] Release checkpoints
+- [x] Release checkpoints
   - [x] OC-detector
-  - [ ] BC-detector
+  - [x] BC-detector
 - [ ] Release datasets
   - [x] Testing
   - [ ] Training
@@ -78,10 +78,10 @@ data
 
 ### 2. Download the pretrained models
 
-|      Model       |                                                               Download                                                                | |
-|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| OC-GMM | [Baidu Disk](https://pan.baidu.com/s/19aB91CXXBZEe9X9e3expnQ?pwd=6irr) |✅ |
-| BC-MLP | [Baidu Disk]() |⬜ |
+|      Model       |                                                               Download                                                                 |
+|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+| OC-GMM | [Baidu Disk](https://pan.baidu.com/s/19aB91CXXBZEe9X9e3expnQ?pwd=6irr) |
+| BC-MLP | [Baidu Disk](https://pan.baidu.com/s/1ti2IjDKX5W-KPax47Mqgtw?pwd=tmrk) |
 
 After downloading these checkpoints, put them into the folder ``pretrained``.
 
