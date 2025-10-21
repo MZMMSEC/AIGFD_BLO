@@ -12,7 +12,7 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 - [ ] Release datasets
   - [x] Testing
   - [ ] Training
-- [ ] Release training codes
+- [x] Release training codes
 
 ## 📁 Datasets
 
@@ -104,7 +104,12 @@ CUDA_VISIBEL_DEVICES=4 python BC_MLP.py --resume ./pretrained/BC.pth --complexit
 
 
 ## ⚡ Self-Supervised Training via Bi-Level Optimization
-
+```
+CUDA_VISIBLE_DEVICES=5 python SSL_training.py --batch_size 48 --output ./output/train_SSL/ --save_model \
+--name FaceCoarse-autol3e4_equalExFa-rn50exifinit_bz48_lr_1e5_FLfidelityV2-u-SM \
+--lr 1e-5 --cosineTmax 20 --scheduler cosine --resume_text None \
+--weight autol --weights_exif 1.0 --weights_face 1.0 --autol_lr 3e-4 --task face_coarse
+```
 
 ## Citation
 If you find this repository useful in your research, please consider citing the following paper:
