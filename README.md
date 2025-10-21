@@ -24,12 +24,9 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 We use FDF ([CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/) version) for self-supervised training, and you can download it from the original project page. We also provide the augmented FDF by the proposed artificial face manipulations. After downloading all the necessary files, please put them into the ``data`` folder, with the data structure in the ``data`` folder as 
 ```
 SSL_training_data
-├── fdf_ccby2_exif_update_filtered_v2
-│   ├──10000004756.json
-│   ├──...
+├── fdf_ccby2_exif_ordinal_categorical.json
 ├── FDF
 │   ├── data
-│   │   ├──id_vs_fdfName.pkl
 │   │   ├── face_dataaug_neg
 │   │   │   ├── 1000002_0.png
 │   │   │   ├──...
