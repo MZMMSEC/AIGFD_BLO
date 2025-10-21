@@ -9,7 +9,7 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 - [x] Release checkpoints
   - [x] OC-detector
   - [x] BC-detector
-- [ ] Release datasets
+- [x] Release datasets
   - [x] Testing
   - [ ] Training
 - [x] Release training codes
