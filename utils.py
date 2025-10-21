@@ -42,3 +42,34 @@ def tsne_plot_save_dir(features, labels, result_dir, savename='tsne_visualizatio
     plt.savefig(save_path)
 
 
+def create_task_flags_sperate(task, exif_initW=1, face_initW=0.1):
+    semantic_tasks_2lvls = {
+                            'iso': exif_initW, 'av': exif_initW, 'et': exif_initW, 'fl': exif_initW,
+                            'makes': exif_initW, 'mm': exif_initW, 'em': exif_initW, 'wb': exif_initW, 'ep': exif_initW,
+                            'face_coarse': face_initW, 'face_grained': face_initW,
+                            }
+    tasks = {}
+    if task != 'all':
+        tasks[task] = semantic_tasks_2lvls[task]
+    else:
+        tasks = semantic_tasks_2lvls
+    return tasks
+
+def get_weight_str(weight, tasks):
+    """
+    Record task weighting.
+    """
+    weight_str = 'Task Weighting | '
+    for i, task_id in enumerate(tasks):
+        weight_str += '{} {:.04f} '.format(task_id.title(), weight[i])
+    return weight_str
+
+
+def predict_batch(tensor_batch):
+    _, predicted_indices = torch.max(tensor_batch, dim=1)
+    return predicted_indices
+
+def accuracy_batch(predicted_indices, true_labels):
+    correct = (predicted_indices == true_labels)
+    acc = correct.sum().item() / true_labels.size(0)
+    return acc
