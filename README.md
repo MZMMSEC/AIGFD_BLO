@@ -19,7 +19,7 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 
 | Datasets & Materials |                                                 Link                                                 |      
 |:-------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|
-|Training | [Baidu Disk](https://pan.baidu.com/s/126c1zY-zuc16Kkf6SVH43A?pwd=mbnb)
+|Training | [Baidu Disk](https://pan.baidu.com/s/1mkvBHuF8Br-cF8jMmTxZEg?pwd=mbnb)
 |Testing | [Baidu Disk](https://pan.baidu.com/s/1W9MG-pm-x4Kpkh-HrtHtYA?pwd=5dtw)
 
 We use FDF ([CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/) version) for self-supervised training, and you can download it from the original project page. We also provide the augmented FDF by the proposed artificial face manipulations and the corresponding codes (See [dataset/training_dataset/preprocessing](https://github.com/MZMMSEC/AIGFD_BLO/tree/main/dataset/training_dataset/preprocessing)). After downloading all the necessary files, please put them into the ``data`` folder, with the data structure in the ``data`` folder as 
