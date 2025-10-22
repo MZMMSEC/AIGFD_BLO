@@ -5,6 +5,7 @@ This repository contains the official PyTorch implementation of the paper **"[Bi
 ☀️ If you find this work useful for your research, please kindly star our repo and cite our paper! ☀️
 
 - [x] Release [arXiv paper](https://arxiv.org/abs/2507.22824)
+- [x] [ICCV 2025 open access](https://openaccess.thecvf.com/content/ICCV2025/html/Zou_Bi-Level_Optimization_for_Self-Supervised_AI-Generated_Face_Detection_ICCV_2025_paper.html) 
 - [x] Release inference codes
 - [x] Release checkpoints
   - [x] OC-detector
@@ -116,6 +117,7 @@ If you find this repository useful in your research, please consider citing the 
   author={Zou, Mian and Zhong, Nan and Yu, Baosheng and Zhan, Yibing and Ma, Kede},
   year={2025},
   booktitle={International Conference on Computer Vision},
+  pages={18959--18968}
 }
 ```
 
